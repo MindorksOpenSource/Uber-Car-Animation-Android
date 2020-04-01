@@ -21,8 +21,8 @@ This project contains a sample app that shows how to animate the car icon of Ube
 
 ## Building the project
 * Clone the project, the `master` branch has the latest code.
-* This App uses the Google API Key for Maps. Get the API key from the Google Cloud Developer console after enabling the Maps feature for your project. Refer this [link](https://developers.google.com/maps/documentation/directions/get-api-key). And put that API key in the `AndroidManifest.xml` file in your project:
-The `meta-data` tag of `AndroidManifest.xml` file will like below:
+* This App uses the Google API Key for Maps. Get the API key from the Google Cloud Developer console after enabling the Maps feature for your project. Refer this [link](https://developers.google.com/maps/documentation/directions/get-api-key) and put that API key in the `AndroidManifest.xml` file in your project:
+The `meta-data` tag of `AndroidManifest.xml` file will look like below:
 ```
 <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -30,4 +30,6 @@ The `meta-data` tag of `AndroidManifest.xml` file will like below:
 ```
 
 ## Explore Course - "Ride-Sharing Uber Lyft Android App"  
-[Learn how to build a ride-sharing Android Taxi Clone App like Uber, Lyft using basic MVP Architecture](https://bootcamp.mindorks.com/android-training-for-beginners)
+[Learn how to build a ride-sharing Android Taxi Clone App like Uber, Lyft using basic MVP Architecture](https://bootcamp.mindorks.com/android-training-for-beginners)  
+
+[Check out Mindorks awesome open source projects here](https://mindorks.com/open-source-projects)
