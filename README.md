@@ -1,0 +1,1 @@
+# Uber Car Animation Android - An example project to demonstrate how to Add Uber Like Car Animation in Android App
