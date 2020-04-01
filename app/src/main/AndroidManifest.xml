@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mindorks.example.uber_car_animation_android">
+    package="com.mindorks.example.ubercaranimation">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -9,7 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="PASTE_YOUR_API_KEY_HERE" />
+
+        <activity
+            android:name="com.mindorks.example.ubercaranimation.MainActivity"
+            android:label="CarAnimation"
+            android:theme="@style/MapsTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
