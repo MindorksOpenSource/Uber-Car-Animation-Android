@@ -144,7 +144,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             run {
                 if (index < 10) {
                     updateCarLocation(cabLatLngList[index])
-                    handler.postDelayed(runnable, 5000)
+                    handler.postDelayed(runnable, 3000)
                     ++index
                 } else {
                     handler.removeCallbacks(runnable)
