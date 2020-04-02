@@ -8,7 +8,14 @@
 <br>
 
 ## About this Open Source Project  
-This project contains a sample app that shows how to animate the car icon of Uber app from a Source to a Destination on Google Map.
+This project contains a sample app that shows how to animate the car icon of Uber app from a Source to a Destination on Google Map. We will build the following in this project:  
+* Use Google Map to draw path from Origin to Destination
+* Use list of locations to draw a path between Origin and Destination just like Uber
+* Use list of location to update car location 
+* Use LinearInterpolator for animation
+* Draw one path of two colours i.e. grey and black
+* Animate the black path from Origin to Destination just like Uber application
+* Animate the car icon just like Uber application
 
 ## Screenshots from this project
 
@@ -29,7 +36,31 @@ The `meta-data` tag of `AndroidManifest.xml` file will look like below:
             android:value="PASTE_YOUR_API_KEY_HERE" />
 ```
 
-## Explore Course - "Ride-Sharing Uber Lyft Android App"  
-[Learn how to build a ride-sharing Android Taxi Clone App like Uber, Lyft using basic MVP Architecture](https://bootcamp.mindorks.com/android-training-for-beginners)  
+## Step by Step guide  
+Reference blog for this project - [How to Add Uber Car Animation in Android App](https://blog.mindorks.com/how-to-add-uber-car-animation-in-android-app)
 
-[Check out Mindorks awesome open source projects here](https://mindorks.com/open-source-projects)
+## Explore Android Online Tutorials and Courses To Learn More by MindOrks
+* [Android Tutorial](https://mindorks.com/android-tutorial) - All Free Android Tutorials by MindOrks
+* [Android Online Course for Professionals](https://bootcamp.mindorks.com) - In this online course, you’ll learn the Dagger, Kotlin, RxJava, MVVM Architecture, Architecture Components, Jetpack, LiveData, ViewModel, Room Database, Database Design, Multithreading, Memory Management, Networking, Caching, How Glide works, Unit Testing, and the best practices for Android Development. By the end of this online course, you will have all the skills you need to become a professional Android Developer.
+* [Android Online Course for Beginners](https://bootcamp.mindorks.com/android-training-for-beginners) - This course is for beginners for those who want to get started with Android Development. In this course, you will build two apps: TodoNotes and Ride-Sharing Uber Android App.
+
+### Find this project useful ? :heart:
+
+* Support it by clicking the :star: button on the upper right of this page. :v:
+
+### License
+```
+   Copyright (C) 2020 MINDORKS NEXTGEN PRIVATE LIMITED
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+```
