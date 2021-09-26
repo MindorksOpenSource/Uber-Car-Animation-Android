@@ -3,6 +3,7 @@ package com.mindorks.example.ubercaranimation
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -10,6 +11,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
+import com.google.maps.android.SphericalUtil
 import com.mindorks.example.ubercaranimation.util.AnimationUtils
 import com.mindorks.example.ubercaranimation.util.MapUtils
 
@@ -23,6 +25,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
     private var blackPolyline: Polyline? = null
     private var movingCabMarker: Marker? = null
     private var previousLatLng: LatLng? = null
+    private var prevBearing: Double? = null
     private var currentLatLng: LatLng? = null
     private lateinit var handler: Handler
     private lateinit var runnable: Runnable
@@ -114,8 +117,10 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             movingCabMarker?.setAnchor(0.5f, 0.5f)
             animateCamera(currentLatLng!!)
         } else {
+            prevBearing = SphericalUtil.computeHeading(previousLatLng!!, currentLatLng!!)
             previousLatLng = currentLatLng
             currentLatLng = latLng
+            Log.wtf("PrevBearing:", "$prevBearing")
             val valueAnimator = AnimationUtils.carAnimator()
             valueAnimator.addUpdateListener { va ->
                 if (currentLatLng != null && previousLatLng != null) {
@@ -125,9 +130,19 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
                         multiplier * currentLatLng!!.longitude + (1 - multiplier) * previousLatLng!!.longitude
                     )
                     movingCabMarker?.position = nextLocation
-                    val rotation = MapUtils.getRotation(previousLatLng!!, nextLocation)
+
+                    /*** Calculating the difference between bearings and only animating the diff value rotation, which removes the jerk
+                     *   Just make sure the next location update doesn't come before this valueAnimator ends, adjust the
+                     *   valueAnimator's duration less than the location update (animationDuration < UpdateInterval) */
+                    val offsetBearing = (SphericalUtil.computeHeading(previousLatLng!!,nextLocation) - prevBearing!!)
+                    val rotation = prevBearing!! + multiplier * offsetBearing
+                    Log.wtf("animated_bearing:", "$rotation")
+
+                    /***Non animated rotation but Jerk free, Uncomment below line & comment out the above 3 lines to use this */
+                    //val rotation = SphericalUtil.computeHeading(previousLatLng!!,currentLatLng)
+
                     if (!rotation.isNaN()) {
-                        movingCabMarker?.rotation = rotation
+                        movingCabMarker?.rotation = rotation.toFloat()
                     }
                     movingCabMarker?.setAnchor(0.5f, 0.5f)
                     animateCamera(nextLocation)
